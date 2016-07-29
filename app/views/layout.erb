@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/application.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <title>sweepr</title>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">home</a>
+          </li>
+          <% if logged_in? %>
+          <li><a href="/users/<%= current_user.id %>">
+              <i><%= current_user.username %></i>
+            </a>
+          </li>
+          <li>
+            <a href="/sessions/logout">logout</a>
+          </li>
+        <% else %>
+          <li>
+            <a href="/users/new">register</a>
+          </li>
+          <li>
+            <a href="/sessions/new">login</a>
+          </li>
+        </ul>
+        <% end %>
+      </nav>
+    </header>
+  </head>
+  <body>
+    <h1>sweepr</h1>
+
+    <div class="container">
+      <%=yield%>
+
+      <div class="map-wrapper">
+        <div id="map"></div>
+      </div>
+    </div>
+    <script>
+      var map;
+      function initMap() {
+        // Constructor creates a new map - only center and zoom are required.
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 41.872165, lng: -87.737012},
+          zoom: 11
+        });
+        var location = {lat: <%= @address.latitude%>, lng: <%= @address.longitude%>};
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map,
+          title: "<%=@address.full_street_address %>"
+        });
+        var infoWindow = new google.maps.InfoWindow({
+          content: "<%=@address.full_street_address %>"
+         });
+         marker.addListener('click', function(){
+           infoWindow.open(map, marker)
+          });
+      }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4lGX8l161b6OS_aa6E-x3Z_VNuvYfHkY&v=3&callback=initMap">
+    </script>
+
+  </body>
+</html>

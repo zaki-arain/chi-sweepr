@@ -1,0 +1,16 @@
+<div class="new-user-form">
+  <h1 class = "section-title">make an account</h1>
+
+  <%if @errors %>
+      <% @errors.each do |error|  %>
+        <h3><%= error %></h3>
+      <% end %>
+  <% end %>
+
+  <form action="/users" method="post">
+    <input type="text" name="user[username]" placeholder="username"><br>
+    <input type="text" name="user[email]" placeholder="email"><br>
+    <input type="password" name="user[password]" placeholder="password"><br>
+    <button type="submit">register</button>
+  </form>
+</div>

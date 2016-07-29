@@ -1,0 +1,11 @@
+<h1 class="section-title">welcome back</h1>
+
+<%if @errors %>
+    <h3 class="error">that email/password combination is invalid. please try again.</h3></h3>
+<% end %>
+
+<form action="/sessions" method="post">
+  <input type="text" name="user[email]" placeholder="email"><br>
+  <input type="password" name="user[password]" placeholder="password"><br>
+  <button type="submit">login</button>
+</form>

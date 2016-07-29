@@ -1,0 +1,21 @@
+<div class="address-form">
+
+  <%if @errors %>
+    <% @errors.each do |error|  %>
+      <h3 class="error"><%= error %></h3>
+    <% end %>
+  <% end %>
+
+  <form action="/address" method="post">
+    street:<br>
+    <input type="text" name="address[street]"><br>
+    city:<br>
+    <input type="text" name="address[city]"><br>
+    state:<br>
+    <input type="text" name="address[state]"><br>
+    zip code:<br>
+    <input type="text" name="address[zip]"><br><br>
+    <button type="submit">search!</button>
+  </form>
+
+</div>

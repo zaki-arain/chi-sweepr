@@ -1,0 +1,16 @@
+<h1 class="section-title"><%=@user.username%>'s profile</h1>
+<h4> joined <%=@user.created_at.strftime("%b %e")%>
+
+
+<ul>kelps
+  <% @user.restaurants.each do |restaurant| %>
+    <li><a href="/restaurants/<%=restaurant.id%>"><%=restaurant.name%></a> -  <%=restaurant.created_at.strftime("%b %e")%></li>
+  <% end %>
+</ul>
+
+
+<ul>reviews
+  <% @user.reviews.each do |review| %>
+  <li><a href="/restaurants/<%=review.restaurant.id%>#<%=review.id%>"><%=review.score %>/5 @ <%=review.restaurant.name%></a> on <%=review.created_at.strftime("%b %e")%></li>
+  <% end %>
+</ul>
