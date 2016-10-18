@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chicago Street Sweeping</title>
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+  <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/cover.css" rel="stylesheet">
+  <script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+      <div class="cover-container">
+        <div class="masthead clearfix">
+          <div class="inner">
+            <h3 class="masthead-brand">SWEEPER</h3>
+            <nav>
+              <ul class="nav masthead-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Alerts</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <div class="inner cover">
+          <h1 class="cover-heading">Don't get a ticket</h1>
+          <p class="lead"><input id="pac-input" class ="controls" type="text" placeholder="Enter an address"></p>
+
+            <div id="map"></div>
+
+        </div>
+
+        <div class="mastfoot">
+          <div class="inner">
+            <p>designed by zaki. check him out at <a href="http://www.zaki-arain.com">zaki-arain.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4lGX8l161b6OS_aa6E-x3Z_VNuvYfHkY&libraries=places&callback=initMap"> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="css/bootstrap.min.js"></script>
+</html>
